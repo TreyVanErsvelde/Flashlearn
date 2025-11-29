@@ -14,12 +14,10 @@ class MainActivity : AppCompatActivity() {
 
     private var selectedDeckIndex: Int = -1
 
-
     private lateinit var rvDecks: RecyclerView
     private lateinit var btnAddDeck: Button
     private lateinit var btnStudyMode: Button
     private lateinit var btnTriviaMode: Button
-
 
     private lateinit var adapter: DeckAdapter
     private lateinit var repository: FlashRepository
@@ -28,26 +26,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Repository
         repository = FlashRepository.getInstance(this)
 
-
-        // UI
         rvDecks = findViewById(R.id.rvDecks)
         btnAddDeck = findViewById(R.id.btnAddDeck)
         btnStudyMode = findViewById(R.id.btnStudyMode)
         btnTriviaMode = findViewById(R.id.btnTriviaMode)
 
-        // RecyclerView
-        adapter = DeckAdapter(repository.decks) { index ->
+        // When a deck is tapped → open DeckActivity
+        adapter = DeckAdapter(repository.decks, repository) { index ->
+            // TAP = select deck ONLY
             selectedDeckIndex = index
-            Toast.makeText(this, "Selected deck: ${repository.decks[index].name}", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(
+                this,
+                "Selected deck: ${repository.decks[index].name}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
+
 
         rvDecks.layoutManager = LinearLayoutManager(this)
         rvDecks.adapter = adapter
 
-        // Add Deck Button
         btnAddDeck.setOnClickListener {
             showAddDeckDialog()
         }
@@ -57,26 +58,20 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Select a deck first!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
             val intent = Intent(this, StudyModeActivity::class.java)
             intent.putExtra("deckIndex", selectedDeckIndex)
             startActivity(intent)
         }
-
 
         btnTriviaMode.setOnClickListener {
             if (selectedDeckIndex == -1) {
                 Toast.makeText(this, "Select a deck first!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
             val intent = Intent(this, TriviaModeActivity::class.java)
             intent.putExtra("deckIndex", selectedDeckIndex)
             startActivity(intent)
         }
-
-
-
     }
 
     private fun showAddDeckDialog() {
@@ -104,3 +99,4 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 }
+

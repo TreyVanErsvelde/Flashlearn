@@ -48,9 +48,14 @@ public class FlashRepository {
         Type type = new TypeToken<List<Deck>>() {}.getType();
         decks = gson.fromJson(json, type);
 
-        if (decks == null || decks.isEmpty()) {
+        if (decks == null) {
             decks = new ArrayList<>();
-            preloadData();   // <-- THIS CREATES YOUR DEFAULT DECK
+        }
+
+        ensureDeckValidity();   // ⭐ IMPORTANT FIX
+
+        if (decks.isEmpty()) {
+            preloadData();
             save();
         }
     }
@@ -186,5 +191,18 @@ public class FlashRepository {
     public void deleteCard(int deckIndex, int cardIndex) {
         decks.get(deckIndex).cards.remove(cardIndex);
         save();
+    }
+    private void ensureDeckValidity() {
+        for (Deck d : decks) {
+            if (d.cards == null) {
+                d.cards = new ArrayList<>();
+            }
+        }
+    }
+    public void deleteDeck(int deckIndex) {
+        if (deckIndex >= 0 && deckIndex < decks.size()) {
+            decks.remove(deckIndex);
+            save();
+        }
     }
 }
