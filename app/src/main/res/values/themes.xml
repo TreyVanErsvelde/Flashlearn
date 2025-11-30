@@ -1,8 +1,32 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.FlashLearn" parent="Theme.Material3.DayNight">
-        <!-- Customize your light theme here. -->
+
+    <!-- Base Theme -->
+    <style name="Base.Theme.FlashLearn" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+
+        <!-- Background / surface -->
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+
+        <!-- AppBar / Toolbar -->
+        <item name="toolbarStyle">@style/Widget.FlashLearn.Toolbar</item>
     </style>
 
+    <!-- Public Theme -->
     <style name="Theme.FlashLearn" parent="Base.Theme.FlashLearn" />
+
+    <!-- Toolbar style so top bar matches brand color -->
+    <style name="Widget.FlashLearn.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/md_theme_light_primary</item>
+        <item name="titleTextColor">@color/md_theme_light_onPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.Material3.ActionBar</item>
+    </style>
+
 </resources>

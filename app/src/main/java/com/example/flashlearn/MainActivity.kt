@@ -3,6 +3,8 @@ package com.example.flashlearn
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -98,5 +100,33 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Cancel", null)
             .show()
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.action_about -> {
+                Toast.makeText(this, "FlashLearn v1.0 — Created by Team Chimichanga", Toast.LENGTH_LONG).show()
+                true
+            }
+
+            R.id.action_help -> {
+                Toast.makeText(this, "Need help? Add decks → add cards → study or play trivia!", Toast.LENGTH_LONG).show()
+                true
+            }
+
+            R.id.action_settings -> {
+                Toast.makeText(this, "Settings — coming soon!", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
 }
 
