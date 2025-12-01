@@ -94,7 +94,7 @@ class DeckActivity : AppCompatActivity() {
             }
 
             val intent = Intent(this, TriviaModeActivity::class.java)
-            intent.putExtra("deckIndex", deckIndex)   // 👈 MUST MATCH
+            intent.putExtra("deckIndex", deckIndex)   // 👈 MUST MATCH k
             startActivity(intent)
         }
 

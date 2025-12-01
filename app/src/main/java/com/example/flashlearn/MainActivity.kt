@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // ⭐ Setup toolbar
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false) // disable default title
+
+        // ⭐ Set custom centered title
+        val titleText = findViewById<TextView>(R.id.toolbarTitle)
+        titleText.text = "FlashLearn"
+
         repository = FlashRepository.getInstance(this)
 
         rvDecks = findViewById(R.id.rvDecks)
@@ -35,9 +45,8 @@ class MainActivity : AppCompatActivity() {
         btnStudyMode = findViewById(R.id.btnStudyMode)
         btnTriviaMode = findViewById(R.id.btnTriviaMode)
 
-        // When a deck is tapped → open DeckActivity
+        // When a deck is tapped → select deck only
         adapter = DeckAdapter(repository.decks, repository) { index ->
-            // TAP = select deck ONLY
             selectedDeckIndex = index
 
             Toast.makeText(
@@ -46,7 +55,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-
 
         rvDecks.layoutManager = LinearLayoutManager(this)
         rvDecks.adapter = adapter
@@ -100,6 +108,7 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Cancel", null)
             .show()
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
@@ -126,7 +135,4 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
 }
-

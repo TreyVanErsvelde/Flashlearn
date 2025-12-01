@@ -29,4 +29,11 @@
         <item name="android:theme">@style/ThemeOverlay.Material3.ActionBar</item>
     </style>
 
+    <style name="ToolbarTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>
