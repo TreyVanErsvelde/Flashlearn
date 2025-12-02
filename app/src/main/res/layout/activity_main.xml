@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:background="@drawable/background">
 
-    <!-- ⭐ PERFECT CENTERED TOOLBAR TITLE (using inner TextView) -->
+    <!-- ⭐ TOOLBAR WITH CENTERED TITLE AND CUSTOM FONT -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white">
 
         <TextView
             android:id="@+id/toolbarTitle"
@@ -22,10 +24,11 @@
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:fontFamily="sans-serif-medium" />
+            android:fontFamily="@font/poppins_extrabold"
+            />
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- ⭐ DECK LIST -->
+    <!-- ⭐ IMPROVED DECK LIST -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDecks"
         android:layout_width="match_parent"
@@ -34,35 +37,53 @@
         android:paddingTop="12dp"
         android:paddingBottom="12dp" />
 
-    <!-- ⭐ ADD DECK BUTTON -->
-    <Button
+    <!-- ⭐ ADD DECK BUTTON (ROUNDED + ELEVATION) -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddDeck"
-        android:text="Add Deck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Add Deck"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/poppins_extrabold"
+        app:cornerRadius="50dp"
+        app:backgroundTint="?attr/colorPrimary"
+        android:elevation="6dp"
         android:layout_marginBottom="12dp" />
 
-    <!-- ⭐ STUDY/TRIVIA BUTTONS WITH BETTER SPACING -->
+    <!-- ⭐ STUDY + TRIVIA MODE (ROUNDED + CLEAN SPACING) -->
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnStudyMode"
-            android:text="Study Mode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="Study Mode"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/poppins_extrabold"
+            app:cornerRadius="50dp"
+            app:backgroundTint="?attr/colorPrimary"
+            android:elevation="6dp"
             android:layout_marginEnd="8dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnTriviaMode"
-            android:text="Trivia Mode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="Trivia Mode"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/poppins_extrabold"
+            app:cornerRadius="50dp"
+            app:backgroundTint="?attr/colorPrimary"
+            android:elevation="6dp"
             android:layout_marginStart="8dp" />
     </LinearLayout>
 
