@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="20dp"
         android:background="@android:color/transparent"
         android:elevation="20dp"
         android:paddingTop="8dp"
@@ -30,18 +30,18 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="141dp"
             android:gravity="center">
 
             <TextView
                 android:id="@+id/toolbarTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_extrabold"
                 android:text="FlashLearn"
                 android:textColor="@android:color/white"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins_extrabold" />
+                android:textStyle="bold" />
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
