@@ -43,12 +43,12 @@ This achieves AI-like behavior while keeping the app lightweight.
 
 A polished interactive quiz mode:
 
-✔ Four-option multiple choice
-✔ Wrong answer shakes (shake animation)
-✔ Wrong answer = “Incorrect — Try Again” (no auto-advance)
-✔ Correct answer = reveal + auto-advance
-✔ Clean UI switching between question → answer → next question
-✔ Randomized options every round
+Four-option multiple choice
+Wrong answer shakes (shake animation)
+Wrong answer = “Incorrect — Try Again” (no auto-advance)
+Correct answer = reveal + auto-advance
+Clean UI switching between question → answer → next question
+Randomized options every round
 
  3. Flashcard Mode
 
