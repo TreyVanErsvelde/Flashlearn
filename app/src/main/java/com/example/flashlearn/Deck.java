@@ -12,6 +12,6 @@ public class Deck {
     public Deck(String name, String description) {
         this.name = name;
         this.description = description;
-        this.cards = new ArrayList<>(); // ⭐ FIX: ALWAYS start with an empty list
+        this.cards = new ArrayList<>();
     }
 }
