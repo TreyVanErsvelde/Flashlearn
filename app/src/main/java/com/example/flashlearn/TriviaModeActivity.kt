@@ -41,7 +41,7 @@ class TriviaModeActivity : AppCompatActivity() {
 
     private val elementPool = listOf("Hydrogen", "Helium", "Carbon", "Nitrogen", "Sodium", "Iron", "Neon", "Copper")
 
-    // 🔥 FIX: Expanded fallback city list (ensures ALWAYS enough city distractors)
+
     private val fallbackCityPool = listOf(
         "Paris", "Tokyo", "London", "Rome", "Berlin", "Madrid",
         "Lisbon", "Vienna", "Prague", "Athens", "Dublin",
@@ -120,7 +120,7 @@ class TriviaModeActivity : AppCompatActivity() {
         val wrong = mutableListOf<String>()
         val options = mutableListOf<String>()
 
-        // 🔥 FIX: STRONG capital detection
+  
         val category = when {
             "capital" in q -> "city"        // <-- high priority
             "city" in q -> "city"
