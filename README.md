@@ -33,7 +33,7 @@ My contributions included:
 ## Installation
 1. Clone the repository  
 2. Open the project in Android Studio  
-3. Sync Gradle and run on an emulator or physical device  
+3. Sync Gradle and run on an emulator or physical device
 
 > Note: This project does not require API keys or internet access.
 
